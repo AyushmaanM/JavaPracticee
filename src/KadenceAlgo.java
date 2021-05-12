@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class KadenceAlgo {
+public class CorrectKadenceAlgo {
     public static void main(String[] args)throws IOException {
         BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Enter the length of the array");
@@ -12,17 +12,14 @@ public class KadenceAlgo {
         for (int i = 0; i < n; i++) {
             a[i]= Integer.parseInt(br.readLine());
         }
-        int sum=0, maxsum=0;
-        for (int i = 0; i < n-1; i++) {
-            sum=0;
-            for (int j = i; j < n; j++) {
-                sum=sum+a[j];
-                if(sum>maxsum)
-                {
-                    maxsum=sum;
-                }
-            }
+        int currSum=0, maxSum=0;
+        for (int i = 0; i < n; i++) {
+            currSum=currSum+a[i];
+            if(currSum>maxSum)
+                maxSum=currSum;
+            if(currSum<0)
+                currSum=0;
         }
-        System.out.println(maxsum);
+        System.out.println(maxSum);
     }
 }
